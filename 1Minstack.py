@@ -32,7 +32,7 @@ class Stack:
     self.min=self.array[0]
     for i in self.array:
       if self.min>i:
-        self.min=x
+        self.min=i
     print("Minimum element in stack is: ",self.min)
   def peek(self):
     if self.isEmpty():
