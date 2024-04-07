@@ -11,7 +11,7 @@ class PQueue:
       return True
     else:
       return False
-      
+  
   def enqueue(self,data,priority):
     self.index=0
     while self.index<len(self.array) and self.array[self.index][1]<=priority:
@@ -19,6 +19,7 @@ class PQueue:
       #INDEX'S FRIST ELEMENT
       self.index+=1 
     self.array.insert(self.index,(data,priority))
+    print(self.array)
       
   def deQueue(self):
     if self.isEmpty():

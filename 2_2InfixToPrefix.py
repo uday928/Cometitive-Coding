@@ -5,7 +5,7 @@ def reverse(s):
     str = i + str
   return str  
 output=[]
-op=[]
+stack=[]
 priority={
   ')':0,
   '+':1,
@@ -18,24 +18,24 @@ exp1=input()
 exp=reverse(exp1)
 for ch in exp:
   if ch==')':
-    op.append(ch)
+    stack.append(ch)
   elif ch=='(':
-    while(op[-1]!=')'):
-      ele=op.pop()
+    while(stack[-1]!=')'):
+      ele=stack.pop()
       output.append(ele)
-    op.pop()
+    stack.pop()
   elif(ch=="+" or ch=="-" or ch=="/" or ch=="*" or ch=="^"):
-    if len(op)>0:
-      while priority[op[-1]]>=priority[ch]:
-        ele=op.pop()
+    if len(stack)>0:
+      while priority[stack[-1]]>=priority[ch]:
+        ele=stack.pop()
         output.append(ele)
-        if len(op)==0:
+        if len(stack)==0:
           break
-    op.append(ch)  
+    stack.append(ch)  
   else:
     output.append(ch)
-while len(op)!=0:
-  ele=op.pop()
+while len(stack)!=0:
+  ele=stack.pop()
   output.append(ele)
 angle=reverse(output)
 print("Infix expression:")
